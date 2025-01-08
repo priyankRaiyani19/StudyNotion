@@ -47,34 +47,30 @@ const TimelineSection = () => {
 
                                     <div className="flex  w-[50px] h-[50px] rounded-[50%] bg-white items-center  justify-center
                                           shadow-[rgb(120,120,120)_1px_0px_10px_0px] ">
-
                                         <img src={element.Logo} alt="not found"/>
-
                                     </div>
 
                                     <div className="flex  flex-col g" key={index}>
+
                                         <h2 className=" font-semibold text-[18px]">
                                             {element.heading}
                                         </h2>
+
                                         <p className="text-base ">
                                             {element.description}
                                         </p>
 
                                     </div>
-
-
                                 </div>
                             );
                         })
                     }
-
-
                 </div>
 
                 {/*  ? part 2 :right   */}
 
-
                 <div className="relative shadow-blue-200 ">
+
                     <img src={timeLineImage}
                          alt="not found"
                          className="rounded-md object-cover h-fit  shadow-[rgb(80,80,80)_21px_22px_10px_0px]"/>
@@ -110,10 +106,7 @@ const TimelineSection = () => {
                     </div>
 
                 </div>
-
-
             </div>
-
         </div>
     );
 };

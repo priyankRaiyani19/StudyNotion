@@ -202,10 +202,6 @@ const Home = () => {
                     <LearningLangaugeSection/>
 
                 </div>
-
-
-
-
             </div>
 
             {/*Section 3 */}
