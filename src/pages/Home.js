@@ -1,11 +1,15 @@
 import React from 'react'
 import {FaArrowRight} from "react-icons/fa"
 import {Link} from "react-router-dom"
+
+
+import Banner from "../assets/Images/banner.mp4"
 import HighlightText from '../components/core/HomePage/HighlightText'
 import CTAButton from "../components/core/HomePage/CTAButton"
-import Banner from "../assets/Images/banner.mp4"
 import CodeBlocks from "../components/core/HomePage/CodeBlocks"
-import CtaButton from "../components/core/HomePage/CTAButton";
+import TimelineSection from "../components/core/HomePage/TimelineSection"
+import LearningLangaugeSection from "../components/core/HomePage/LearningLangaugeSection"
+
 
 const Home = () => {
     return (
@@ -134,11 +138,11 @@ const Home = () => {
 
             <div className="bg-pure-greys-5 text-richblack-700">
 
-                {/* ? part 1*/}
+                {/* ? part 1 chex Background  */}
 
                 <div className="homepage_bg h-[310px] ">
 
-                    {/*  ! if we can sentence uncomment which is comment thats working same */}
+                    {/*  ! if we can sentence uncomment which is comment that's working same */}
                     {/*<div className="w-11/12 max-w-maxContent  flex items-center justify-center gap-5 mx-auto ">*/}
                     <div
                         className="w-11/12 max-w-maxContent  flex flex-col items-center  justify-between gap-5 mx-auto ">
@@ -164,33 +168,43 @@ const Home = () => {
 
                 </div>
 
-                {/* ?  part 2*/}
+                {/* ?  part 2 job in demand */}
 
                 <div
-                    className="mx-auto w-11/12 mt-[125px] max-w-maxContent  flex flex-col items-center   justify-between">
+                    className="mx-auto  w-11/12 mt-[125px] mb-10 max-w-maxContent  flex flex-col items-center justify-between">
 
                     <div className="flex flex-row gap-7 w-full">
-
                         <div className="w-[45%] text-4xl font-semibold">
                             Get the skills you need for a
                             <HighlightText text={"job that is in demand."}></HighlightText>
                         </div>
 
                         <div className="w-[45%] ml-auto flex flex-col items-start  gap-10 justify-between">
-
                             <div className="font-semibold">
                                 The modern StudyNotion is the dictates its own terms. Today, to be a competitive
                                 specialist requires more than professional skills.
                             </div>
+
                             <div>
-                                <CtaButton active={true} linkto={"/signup"}>Learn More</CtaButton>
+                                <CTAButton active={true} linkto={"/signup"}>Learn More</CTAButton>
                             </div>
 
                         </div>
 
                     </div>
 
+                    {/*  ? part 3 TimeLine Section */}
+
+                    <TimelineSection/>
+
+                    {/* ? part 4 Learning section  */}
+
+                    <LearningLangaugeSection/>
+
                 </div>
+
+
+
 
             </div>
 
