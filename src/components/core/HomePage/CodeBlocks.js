@@ -9,19 +9,19 @@ const CodeBlocks = (
     {position, heading, subHeading, ctabtn1, ctabtn2, codeBlock, backgroundGradient, codeColor}
 ) => {
     return (
-        <div className={`flex ${position}  my-20 justify-between gap-10`}>
+        <div className={`flex ${position}   my-20 justify-between gap-10`}>
 
             {/* * Section 1: content part  */}
 
             <div className=" w-[50%]  flex flex-col gap-8 ">
 
                 {heading}
-                <div className="text-richblack-300 font-bold   ">
+                <div className="text-richblack-300 font-bold    ">
                     {subHeading}
                 </div>
 
                 {/* * ctabuttons */}
-                <div className="flex gap-7 mt-7">
+                <div className="flex gap-7 mt-7 ">
 
                     <CTAButton active={ctabtn1.active} linkto={ctabtn1.linkto}>
                         <div className="flex gap-2 items-center">
@@ -37,7 +37,7 @@ const CodeBlocks = (
             </div>
 
             {/* * Section 2: code part  */}
-            <div className="flex h-fit flex-row text-[15px] lg:w-[500px]  w-[100%] py-4">
+            <div className={` flex  h-fit flex-row text-[15px] lg:w-[500px]  w-[100%] py-4`}>
             {/*todo create gradient in background/}*/}
 
                 <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter">
@@ -54,7 +54,7 @@ const CodeBlocks = (
                     <p>11</p>
                 </div>
 
-                <div className={`w-[90%] flex flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
+                <div className={`w-[90%] flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
                     <TypeAnimation
                     sequence={[codeBlock,2500,""]}
                     repeat={Infinity}
