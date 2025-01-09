@@ -102,9 +102,7 @@ const TimelineSection = () => {
 
                         <div></div>
 
-
                     </div>
-
                 </div>
             </div>
         </div>
