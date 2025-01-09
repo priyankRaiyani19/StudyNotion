@@ -34,11 +34,11 @@ const TimelineSection = () => {
     return (
         <div>
 
-            <div className=" flex lg:flex-row flex-col gap-14  lg:mt-[100px] mt-[0px] lg:mb-[100px] ">
+            <div className=" flex md:flex-row flex-col gap-14  md:mt-[100px] mt-[0px] md:mb-[100px] ">
 
                 {/* ? part 1 left box*/}
 
-                <div className="flex flex-col lg:w-[45%] sm:w-[100%] gap-5 mr-auto mt-16">
+                <div className="flex flex-col md:w-[45%] sm:w-[100%] gap-5 mr-auto mt-16">
 
                     {
                         timeLine.map((element, index) => {
@@ -73,13 +73,13 @@ const TimelineSection = () => {
 
                     <img src={timeLineImage}
                          alt="not found"
-                         className="rounded-md lg:object-cover object-none lg:h-fit h-[100%] w-[100%]  shadow-[rgb(80,80,80)_21px_22px_10px_0px]"/>
+                         className="rounded-md md:object-cover object-none md:h-fit h-[100%] w-[100%]  shadow-[rgb(80,80,80)_21px_22px_10px_0px]"/>
 
-                    <div className="absolute  bg-caribbeangreen-700 lg:flex-row gap-[10px] flex-col flex text-white uppercase
-                     lg:py-7 py-[15px] lg:left-[50%] left-[70%] translate-x-[-50%] lg:bottom-[-10%] bottom-[3%]  ">
+                    <div className="absolute  bg-caribbeangreen-700 md:flex-row gap-[10px] flex-col flex text-white uppercase
+                     md:py-7 py-[15px] md:left-[50%] left-[70%] translate-x-[-50%] md:bottom-[-10%] bottom-[3%]  ">
 
-                        <div className="flex lg:mt-0 mt-[10px] flex-row gap-5 items-center justify-center
-                        lg:border-r-4 lg:border-b-0 border-b-4 lg:pb-0 pb-2  border-caribbeangreen-300 lg:px-5 px-7 ">
+                        <div className="flex md:mt-0 mt-[10px] flex-row gap-5 items-center justify-center
+                        md:border-r-4 md:border-b-0 border-b-4 md:pb-0 pb-2  border-caribbeangreen-300 md:px-5 px-7 ">
                             <p className="text-3xl font-bold">
                                 10
                             </p>
