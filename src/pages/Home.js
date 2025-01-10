@@ -95,7 +95,7 @@ const Home = () => {
                             Start
                             <HighlightText text={"coding in seconds"}/>
                         </div>}
-                        subHeading={"Go ahead, give it a try. Our hands-on learning environment means " + "you'll be writing real code from your very first lesson"}
+                        subHeading="Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson"
                         ctabtn1={{
                             btnText: "try it yourself", linkto: "/signup", active: true,
                         }}
