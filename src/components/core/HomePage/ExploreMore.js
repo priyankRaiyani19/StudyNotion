@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { HomePageExplore } from "../../../data/homepage-explore";
+import React, {useState} from "react";
+import {HomePageExplore} from "../../../data/homepage-explore";
 import CourseCard from "./CourseCard";
 import HighlightText from "./HighlightText";
 
@@ -31,7 +31,7 @@ const ExploreMore = () => {
             <div>
                 <div className="text-4xl font-semibold md:text-center my-10">
                     Unlock the
-                    <HighlightText text={"Power of Code"} />
+                    <HighlightText text={"Power of Code"}/>
                     <p className="md:text-center text-richblack-300 text-lg font-semibold mt-1">
                         Learn to Build Anything You Can Imagine
                     </p>
@@ -39,7 +39,8 @@ const ExploreMore = () => {
             </div>
 
             {/* Tabs Section */}
-            <div className="hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1 rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
+            <div
+                className="hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1 rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
                 {tabsName.map((ele, index) => {
                     return (
                         <div
