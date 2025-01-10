@@ -6,7 +6,7 @@ import {TypeAnimation} from "react-type-animation";
 
 
 const CodeBlocks = (
-    {position, heading, subHeading, ctabtn1, ctabtn2, codeBlock, hedingWidth ,backgroundGradient, codeColor}
+    {position, heading, subHeading, ctabtn1, ctabtn2, codeBlock, headingWidth ,backgroundGradient, codeColor}
 ) => {
     return (
         <div className={`flex ${position} md:flex-row flex-col md:my-20 my-5 justify-between gap-10`}>
@@ -14,7 +14,7 @@ const CodeBlocks = (
             {/* * Section 1: content part  */}
 
             <div className=" lg:w-[50%] sm:[100%]  flex flex-col gap-8 ">
-                <div className={` ${hedingWidth}`}>
+                <div className={` ${headingWidth}`}>
                 {heading}
                 </div>
                 <div className="text-richblack-300 font-bold    ">
@@ -38,10 +38,11 @@ const CodeBlocks = (
             </div>
 
             {/* * Section 2: code part  */}
-            <div className={` flex  h-fit flex-row text-[15px] lg:w-[500px]  w-[100%] py-4`}>
+            <div className={`flex bg-transparent h-fit flex-row text-[15px]  lg:w-[500px]  w-[100%] py-4`}>
             {/*todo create gradient in background/}*/}
-
-                <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter">
+                {backgroundGradient}
+            {/*    <div className={` flex flex-row bg-gradient-to-t rounded-[100%] from-blue-25 to-blue-25 h-64 text-[15px]  w-[500px] py-4 `}>*/}
+                <div className="  text-center z-10 flex flex-col w-[10%]   text-richblack-400 font-inter">
                     <p>1</p>
                     <p>2</p>
                     <p>3</p>
@@ -55,7 +56,7 @@ const CodeBlocks = (
                     <p>11</p>
                 </div>
 
-                <div className={`w-[90%] flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
+                <div className={`  w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
                     <TypeAnimation
                     sequence={[codeBlock,2500,""]}
                     repeat={Infinity}
@@ -70,12 +71,13 @@ const CodeBlocks = (
 
 
                 </div>
+                </div>
 
 
 
             </div>
 
-        </div>
+        // </div>
     );
 };
 

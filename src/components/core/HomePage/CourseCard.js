@@ -1,10 +1,8 @@
 import React from "react";
 
 // Importing React Icons
-
 import {HiUserGroup} from "react-icons/hi";
 import {ImTree} from "react-icons/im";
-
 const CourseCard = ({cardData, currentCard, setCurrentCard}) => {
     return (
         <div
@@ -41,7 +39,7 @@ const CourseCard = ({cardData, currentCard, setCurrentCard}) => {
                 {/* Flow Chart */}
                 <div className="flex items-center gap-2 text-[16px]">
                     <ImTree/>
-                    <p>{cardData?.lessionNumber} Lesson</p>
+                    <p>{cardData?.lessonNumber} Lesson</p>
                 </div>
             </div>
         </div>
