@@ -139,7 +139,7 @@ const Home = () => {
                 <div className='homepage_bg h-[310px]'>
 
                     <div className='w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto'>
-                        <div className='h-[1750px]'></div>
+                        <div className='h-[10px]'></div>
                         <div className='flex flex-row gap-7 text-white '>
                             <CTAButton active={true} linkto={"/signup"}>
                                 <div className='flex items-center gap-3' >
@@ -178,19 +178,10 @@ const Home = () => {
                                 </div>
                             </CTAButton>
                         </div>
-
                     </div>
-
-
-
                     <TimelineSection />
-
                     <LearningLanguageSection />
-
                 </div>
-
-
-
             </div>
 
 

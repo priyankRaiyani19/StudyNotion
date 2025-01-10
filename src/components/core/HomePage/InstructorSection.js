@@ -9,10 +9,10 @@ const InstructorSection = () => {
         <div className='mt-16 '>
             <div className='flex md:flex-row flex-col gap-20 items-center'>
 
-                <div className='lg:w-[50%] w-[100%] shadow-[rgba(255,255,255,10)_-20px_-20px_5px_0px]'>
+                <div className='lg:w-[50%] w-[100%] shadow-[rgba(255,255,255,1)_-20px_-20px_10px_0px]'>
                     <img
                         src={Instructor}
-                        alt=""
+                        alt="not found"
                         className='shadow-white'
                     />
                 </div>
