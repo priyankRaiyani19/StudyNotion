@@ -27,19 +27,19 @@ export const HomePageExplore = [
         courses : [
             {
                 heading : "HTML",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                description : "Master the fundamental building blocks of the web by learning to create structured, accessible, and visually engaging content.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "CSS",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
+                description : "Dive into the art of styling web pages, transforming basic layouts into polished and responsive designs with advanced techniques.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "Responsive ",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
+                description : "Learn to create web pages that automatically adjust to fit any screen size or device, ensuring a seamless user experience.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
@@ -50,19 +50,19 @@ export const HomePageExplore = [
         courses : [
             {
                 heading : "Java",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                description : "Explore the world of scalable, object-oriented programming to build robust applications for diverse platforms.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "Python",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
+                description : "Unlock the potential of Python, a versatile language perfect for beginners and professionals in web development, data science, and automation.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "SCSS",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
+                description : "Elevate your CSS skills by leveraging the power of SCSS to write cleaner, more efficient, and maintainable stylesheets.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
@@ -73,19 +73,19 @@ export const HomePageExplore = [
         courses : [
             {
                 heading : "Flask",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                description : "Discover how to build lightweight and scalable web applications with Python’s minimalist web framework.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "Django",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
+                description : "Master Django, the high-level Python framework that simplifies the process of creating secure and dynamic web applications.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "Fast API",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
+                description : "Learn to build modern, high-performance APIs effortlessly with FastAPI, leveraging Python’s simplicity and speed.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
@@ -96,19 +96,19 @@ export const HomePageExplore = [
         courses : [
             {
                 heading : "Next.js",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                description : "Gain expertise in Next.js to build server-rendered React applications optimized for performance and SEO.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
-                heading : "Nuxt.js",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
+                heading : "PHP",
+                description : "Dive into headless content management with Sanity, empowering dynamic content creation and seamless integration.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
             {
                 heading : "Sanity",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
+                description : "Strengthen your back-end development skills by mastering PHP, a foundational server-side scripting language for modern web development.",
                 level : 'Beginner',
                 lessonNumber : 6
             },
