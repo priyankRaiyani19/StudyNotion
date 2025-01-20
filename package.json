@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@react-buddy/ide-toolbox": "^2.4.0",
+    "@reduxjs/toolkit": "^2.5.0",
     "concurrently": "^9.1.2",
     "react": "^18.2.0",
+    "react-combine-reducers": "^1.1.1",
     "react-dom": "^18.2.0",
     "react-icons": "^5.4.0",
     "react-redux": "^9.2.0",
@@ -13,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-type-animation": "^3.2.0",
     "redux-toolkit": "^1.1.2",
+    "redux-toolkit-form": "^1.2.1",
     "web-vitals": "^2.1.4"
   },
   "repository": {

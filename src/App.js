@@ -11,22 +11,19 @@ function App() {
         <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter select-none ">
             <NavBar/>
             <Routes>
-
                 <Route path="/" element={<Home/>}/>
                 <Route
                     path="signup"
                     element={
                         // <OpenRoute>
-                            <Signup />
+                        <Signup/>
                         // </OpenRoute>
                     }
                 />
                 <Route
                     path="login"
                     element={
-
-                            <Login />
-
+                        <Login/>
                     }
                 />
             </Routes>

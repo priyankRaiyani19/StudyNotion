@@ -6,6 +6,7 @@ import {IoIosArrowDown} from "react-icons/io";
 import {useLocation} from 'react-router-dom';
 
 const NavBar = () => {
+
     // ! ***************************************
     const location = useLocation('');
     const matchRoute = (route) => {
@@ -43,7 +44,8 @@ const NavBar = () => {
                                     : (<Link to={ele?.path}>
 
                                         <div
-                                            className={`${matchRoute(ele.path) ? "text-yellow-5 font-semibold" : "text-richblack-25"}`}>
+                                            className={`${matchRoute(ele.path) ? "text-yellow-5 font-semibold"
+                                                : "text-richblack-25"}`}>
                                             {ele?.title}
                                         </div>
 
@@ -54,12 +56,10 @@ const NavBar = () => {
                 </nav>
 
                 {/* ? buttons : login signUp and dashboard */}
-
                 <div className={`flex flex-row items-center gap-x-4`}>
 
+
                 </div>
-
-
             </div>
         </div>);
 };
