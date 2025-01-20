@@ -4,12 +4,12 @@ import App from "./App";
 import "./index.css";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from "./reducer/index.reducer";
 
-
 const store = configureStore({
-    reducers: rootReducer,
+    //! never write reducers in this
+    reducer: rootReducer,
 });
 
 
