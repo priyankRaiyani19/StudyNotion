@@ -83,6 +83,7 @@ const Home = () => {
                         }}
                         codeBlock={`<<!DOCTYPE html>\n<html>\nhead><title>Example</ \n title><linkrel="stylesheet"href="styles.css">\n/head>\n body>\nh1><ahref="/">Header</a> \n /h1>\n nav><ahref="one/">One</a><ahref="two/">Two</\n a><ahref="three/">Three</a>\n nav>`}
                         codeColor={"text-yellow-300"}
+                        timer={1500}
                         backgroundGradient={<div className="codeblock1 absolute"></div>}
                     />
                 </div>
@@ -104,6 +105,7 @@ const Home = () => {
                         }}
                         codeBlock={`<<!DOCTYPE html>\n<html>\nhead><title>Example</ \n title><linkrel="stylesheet"href="styles.css">\n/head>\n body>\nh1><ahref="/">Header</a> \n /h1>\n nav><ahref="one/">One</a><ahref="two/">Two</\n a><ahref="three/">Three</a>\n nav>`}
                         codeColor={"text-blue-200"}
+                        timer={3000}
                         backgroundGradient={<div className="codeblock2 absolute"></div>}
                         headingWidth={"w-[50%]"}
                     />

@@ -5,6 +5,7 @@ import {NavbarLinks} from '../../data/navbar-links'
 import {IoIosArrowDown} from "react-icons/io";
 import {useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import {IoCartOutline} from "react-icons/io5";
 
 const NavBar = () => {
 
@@ -63,8 +64,24 @@ const NavBar = () => {
                 </nav>
 
                 {/* ? buttons : login signUp and dashboard */}
+                {/*todo:add styling*/}
                 <div className={`flex flex-row items-center gap-x-4`}>
+                    {
+                        user && user?.accountType !== "Instructor" && (
+                            <Link to={"/dashboard/cart"} className={`relative`}>
+                                <IoCartOutline/>
+                                {
+                                    totalItems > 0 && (
+                                        <span>
+                                            {totalItems}
+                                        </span>
+                                    )
+                                }
+                            </Link>
 
+
+                        )
+                    }
 
                 </div>
             </div>

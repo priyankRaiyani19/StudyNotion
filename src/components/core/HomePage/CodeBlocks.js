@@ -6,7 +6,7 @@ import {TypeAnimation} from "react-type-animation";
 
 
 const CodeBlocks = (
-    {position, heading, subHeading, ctabtn1, ctabtn2, codeBlock, headingWidth ,backgroundGradient, codeColor}
+    {position, heading, subHeading,timer, ctabtn1, ctabtn2, codeBlock, headingWidth ,backgroundGradient, codeColor}
 ) => {
     return (
         <div className={`flex ${position} md:flex-row flex-col md:my-20 my-5 justify-between gap-10`}>
@@ -60,7 +60,7 @@ const CodeBlocks = (
 
                 <div className={` w-[80%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
                     <TypeAnimation
-                    sequence={[codeBlock,2500,""]}
+                    sequence={[codeBlock,timer,""]}
                     repeat={Infinity}
                     cursor={true}
 
