@@ -4,8 +4,15 @@ import Logo from '../../assets/Logo/Logo-Full-Light.png';
 import {NavbarLinks} from '../../data/navbar-links'
 import {IoIosArrowDown} from "react-icons/io";
 import {useLocation} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 const NavBar = () => {
+
+
+    //? fetch data from reducer for that use UseSelector hook
+    const {token} = useSelector(state => state.auth);
+    const {user} = useSelector(state => state.profile);
+    const {totalItems} = useSelector(state => state.cart);
 
     // ! ***************************************
     const location = useLocation('');
