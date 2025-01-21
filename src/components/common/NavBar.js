@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, matchPath} from "react-router-dom";
 import Logo from '../../assets/Logo/Logo-Full-Light.png';
 import {NavbarLinks} from '../../data/navbar-links'
@@ -7,6 +7,8 @@ import {useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {IoCartOutline} from "react-icons/io5";
 import ProfileDropDown from "../core/Auth/ProfileDropDown";
+import {apiConnector} from "../../Services/apiConnector";
+import {categories} from "../../Services/apis";
 
 const NavBar = () => {
 
@@ -15,6 +17,23 @@ const NavBar = () => {
     const {token} = useSelector(state => state.auth);
     const {user} = useSelector(state => state.profile);
     const {totalItems} = useSelector(state => state.cart);
+
+    const [subLinks, setSubLinks] = useState([]);
+
+
+    useEffect(() => {
+        const fetchSubLinks = async () => {
+            try {
+                const result = await apiConnector("GET", categories.CATEGORIES_API,);
+                console.log("Printing sublinks", result);
+                setSubLinks(result.data.data);
+            } catch (error) {
+                console.log("could not category List");
+                console.log(error);
+            }
+        }
+    }, []);
+
 
     // ! ***************************************
     const location = useLocation('');
@@ -68,7 +87,8 @@ const NavBar = () => {
                 {/*todo:add styling*/}
                 <div className={`flex flex-row items-center gap-x-4`}>
                     {
-                        user && user?.accountType !== "Instructor" && (<Link to={"/dashboard/cart"} className={`relative`}>
+                        user && user?.accountType !== "Instructor" && (
+                            <Link to={"/dashboard/cart"} className={`relative`}>
                                 <IoCartOutline/>
                                 {
                                     totalItems > 0 && (
@@ -103,8 +123,6 @@ const NavBar = () => {
                     {
                         token !== null && (<ProfileDropDown/>)
                     }
-
-
 
 
                 </div>

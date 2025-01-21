@@ -17,6 +17,7 @@ const ExploreMore = () => {
     const [currentCard, setCurrentCard] = useState(
         HomePageExplore[0].courses[0].heading
     );
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const setMyCards = (value) => {
         setCurrentTab(value);
@@ -39,6 +40,51 @@ const ExploreMore = () => {
             </div>
 
             {/* Tabs Section */}
+
+            {/*dropdown for sm*/}
+            <div className="sm:block lg:hidden relative mb-10 mx-auto">
+                <button
+                    className="w-[50%]  bg-richblack-800 text-richblack-200 p-2 rounded-full
+                    font-medium flex items-center justify-center"
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                >
+                    {currentTab}
+                    <svg
+                        className={`w-5 h-5 transition-transform ${
+                            dropdownOpen ? "rotate-180" : "rotate-0"
+                        }`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                {dropdownOpen && (
+                    <ul className="absolute mt-1 w-full bg-richblack-800 text-richblack-200 rounded-md shadow-lg z-10">
+                        {tabsName.map((ele, index) => (
+                            <li
+                                key={index}
+                                className={`px-4 py-2 cursor-pointer rounded-md ${
+                                    currentTab === ele
+                                        ? "bg-richblack-900 text-richblack-5"
+                                        : "hover:bg-richblack-900 hover:text-richblack-5"
+                                }`}
+                                onClick={() => {
+                                    setCurrentTab(ele);
+                                    setDropdownOpen(false);
+                                    setMyCards(ele)
+                                }}
+                            >
+                                {ele}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+
+
             <div
                 className="hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1
                           rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
