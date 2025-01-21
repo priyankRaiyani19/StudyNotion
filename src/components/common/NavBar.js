@@ -6,6 +6,7 @@ import {IoIosArrowDown} from "react-icons/io";
 import {useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {IoCartOutline} from "react-icons/io5";
+import ProfileDropDown from "../core/Auth/ProfileDropDown";
 
 const NavBar = () => {
 
@@ -67,8 +68,7 @@ const NavBar = () => {
                 {/*todo:add styling*/}
                 <div className={`flex flex-row items-center gap-x-4`}>
                     {
-                        user && user?.accountType !== "Instructor" && (
-                            <Link to={"/dashboard/cart"} className={`relative`}>
+                        user && user?.accountType !== "Instructor" && (<Link to={"/dashboard/cart"} className={`relative`}>
                                 <IoCartOutline/>
                                 {
                                     totalItems > 0 && (
@@ -78,10 +78,34 @@ const NavBar = () => {
                                     )
                                 }
                             </Link>
-
-
                         )
                     }
+                    {
+                        token === null && (
+                            <Link to="/login">
+                                <button className={`border border-richblack-700 bg-richblack-800 py-[5px] px-[10px]
+                                text-richblack-100 rounded-md  hover:bg-richblack-900`}>
+                                    Log in
+                                </button>
+                            </Link>
+                        )
+                    }
+                    {
+                        token === null && (
+                            <Link to="/signup">
+                                <button className={`border border-richblack-700 bg-richblack-800 py-[5px] px-[10px]
+                                text-richblack-100 rounded-md  hover:bg-richblack-900`}>
+                                    Sign Up
+                                </button>
+                            </Link>
+                        )
+                    }
+                    {
+                        token !== null && (<ProfileDropDown/>)
+                    }
+
+
+
 
                 </div>
             </div>
