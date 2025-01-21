@@ -58,7 +58,7 @@ const CodeBlocks = (
                     <p className={`md:hidden`} >13</p>
                 </div>
 
-                <div className={` w-[80%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
+                <div className={` w-[70%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
                     <TypeAnimation
                     sequence={[codeBlock,timer,""]}
                     repeat={Infinity}

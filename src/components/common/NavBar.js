@@ -11,32 +11,34 @@ import {apiConnector} from "../../Services/apiConnector";
 import {categories} from "../../Services/apis";
 
 const NavBar = () => {
+    console.log("Printing base url: ",process.env.REACT_APP_BASE_URL);
+    const {token} = useSelector( (state) => state.auth );
+    const {user} = useSelector( (state) => state.profile );
+    const {totalItems} = useSelector( (state) => state.cart )
+    const location = useLocation();
 
 
-    //? fetch data from reducer for that use UseSelector hook
-    const {token} = useSelector(state => state.auth);
-    const {user} = useSelector(state => state.profile);
-    const {totalItems} = useSelector(state => state.cart);
+    const [subLinks, setSubLinks]  = useState([]);
 
-    const [subLinks, setSubLinks] = useState([]);
-
-
-    useEffect(() => {
-        const fetchSubLinks = async () => {
-            try {
-                const result = await apiConnector("GET", categories.CATEGORIES_API,);
-                console.log("Printing sublinks", result);
-                setSubLinks(result.data.data);
-            } catch (error) {
-                console.log("could not category List");
-                console.log(error);
-            }
+    const fetchSublinks = async() => {
+        try{
+            const result = await apiConnector("GET", categories.CATEGORIES_API);
+            console.log("Printing SubLinks result:" , result);
+            setSubLinks(result.data.data);
         }
-    }, []);
+        catch(error) {
+            console.log("Could not fetch the category list");
+        }
+    }
+
+
+    useEffect( () => {
+        fetchSublinks();
+    },[] )
 
 
     // ! ***************************************
-    const location = useLocation('');
+
     const matchRoute = (route) => {
         return matchPath({path: route}, location.pathname)
     }

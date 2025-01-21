@@ -41,11 +41,11 @@ const ExploreMore = () => {
 
             {/* Tabs Section */}
 
-            {/*dropdown for sm*/}
+            {/*dropdown for Mobile*/}
             <div className="sm:block lg:hidden relative mb-10 mx-auto">
                 <button
                     className="w-[50%]  bg-richblack-800 text-richblack-200 p-2 rounded-full
-                    font-medium flex items-center justify-center"
+                    font-medium flex items-center justify-around"
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
                     {currentTab}
