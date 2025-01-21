@@ -7,6 +7,7 @@
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
     "concurrently": "^9.1.2",
+    "dotenv": "^16.4.7",
     "react": "^18.2.0",
     "react-combine-reducers": "^1.1.1",
     "react-dom": "^18.2.0",

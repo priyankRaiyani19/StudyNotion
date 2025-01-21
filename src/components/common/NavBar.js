@@ -10,29 +10,42 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import {apiConnector} from "../../Services/apiConnector";
 import {categories} from "../../Services/apis";
 
+const subLinks = [
+    {
+        title: "python",
+        link:"/catalog/python"
+    },
+    {
+        title: "web dev",
+        link:"/catalog/web-development"
+    },
+];
+
 const NavBar = () => {
-    console.log("Printing base url: ", process.env.REACT_APP_BASE_URL);
-    const {token} = useSelector((state) => state.auth);
-    const {user} = useSelector((state) => state.profile);
-    const {totalItems} = useSelector((state) => state.cart)
+    console.log("Printing base url: ",process.env.REACT_APP_BASE_URL);
+    const {token} = useSelector( (state) => state.auth );
+    const {user} = useSelector( (state) => state.profile );
+    const {totalItems} = useSelector( (state) => state.cart )
     const location = useLocation();
 
-    const [subLinks, setSubLinks] = useState([]);
+    // const [subLinks, setSubLinks]  = useState([]);
 
-    const fetchSublinks = async () => {
-        try {
+    const fetchSublinks = async() => {
+        try{
             const result = await apiConnector("GET", categories.CATEGORIES_API);
-            console.log("Printing SubLinks result:", result);
-            setSubLinks(result.data.data);
-        } catch (error) {
+            // console.log("Printing SubLinks result:" , result);
+            // setSubLinks(result.data.data);
+            // console.log("Printing SubLinks result:" , subLinks);
+        }
+        catch(error) {
             console.log("Could not fetch the category list");
         }
     }
 
 
-    useEffect(() => {
+    useEffect( () => {
         fetchSublinks();
-    }, [])
+    },[0] )
 
 
     // ! ***************************************
