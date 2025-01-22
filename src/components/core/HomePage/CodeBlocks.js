@@ -38,7 +38,7 @@ const CodeBlocks = (
             </div>
 
             {/* * Section 2: code part  */}
-            <div className={`flex bg-transparent h-fit flex-row text-[15px]  lg:w-[500px]  w-[100%] py-4`}>
+            <div className={`flex bg-transparent h-fit flex-row text-[15px]  lg:w-[500px]  w-[90%] py-4`}>
             {/*todo create gradient in background/}*/}
                 {backgroundGradient}
             {/*    <div className={` flex flex-row bg-gradient-to-t rounded-[100%] from-blue-25 to-blue-25 h-64 text-[15px]  w-[500px] py-4 `}>*/}

@@ -19,7 +19,7 @@ const Home = () => {
             <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center
                     text-white justify-between'>
 
-                <div className='ml-0 md:ml-auto group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold
+                <div className='ml-0 relative md:ml-auto group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold
                               text-richblack-200 transition-all duration-200 hover:scale-95 w-fit
                                 shadow-[rgba(120,120,120,120)_1.5px_1.5px_2px_0px]'>
                     <Link to={"/signup"}>

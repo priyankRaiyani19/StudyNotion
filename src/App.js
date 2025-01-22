@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import NavBar from "./components/common/NavBar";
+import OpenRoute from "./components/core/Auth/OpneRoute"
 
 
 
@@ -15,20 +16,20 @@ function App() {
             <NavBar/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                {/*<Route*/}
-                {/*    path="signup"*/}
-                {/*    element={*/}
-                {/*        // <OpenRoute>*/}
-                {/*        <Signup/>*/}
-                {/*        // </OpenRoute>*/}
-                {/*    }*/}
-                {/*/>*/}
-                {/*<Route*/}
-                {/*    path="login"*/}
-                {/*    element={*/}
-                {/*        <Login/>*/}
-                {/*    }*/}
-                {/*/>*/}
+                <Route
+                    path="signup"
+                    element={
+                        <OpenRoute>
+                        <Signup/>
+                        </OpenRoute>
+                    }
+                />
+                <Route
+                    path="login"
+                    element={
+                        <Login/>
+                    }
+                />
             </Routes>
         </div>
     );

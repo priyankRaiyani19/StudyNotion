@@ -7,46 +7,43 @@ import {useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {IoCartOutline} from "react-icons/io5";
 import ProfileDropDown from "../core/Auth/ProfileDropDown";
-import {apiConnector} from "../../Services/apiConnector";
-import {categories} from "../../Services/apis";
+import {apiConnector} from "../../services/apiConnector";
+import {categories} from "../../services/apis";
 
 const subLinks = [
     {
         title: "python",
-        link:"/catalog/python"
+        link: "/catalog/python"
     },
     {
         title: "web dev",
-        link:"/catalog/web-development"
+        link: "/catalog/web-development"
     },
 ];
 
 const NavBar = () => {
-    console.log("Printing base url: ",process.env.REACT_APP_BASE_URL);
-    const {token} = useSelector( (state) => state.auth );
-    const {user} = useSelector( (state) => state.profile );
-    const {totalItems} = useSelector( (state) => state.cart )
+    console.log("Printing base url: ", process.env.REACT_APP_BASE_URL);
+    const {token} = useSelector((state) => state.auth);
+    const {user} = useSelector((state) => state.profile);
+    const {totalItems} = useSelector((state) => state.cart)
     const location = useLocation();
 
     // const [subLinks, setSubLinks]  = useState([]);
 
-    const fetchSublinks = async() => {
-        try{
+    const fetchSublinks = async () => {
+        try {
             const result = await apiConnector("GET", categories.CATEGORIES_API);
             // console.log("Printing SubLinks result:" , result);
             // setSubLinks(result.data.data);
             // console.log("Printing SubLinks result:" , subLinks);
-        }
-        catch(error) {
+        } catch (error) {
             console.log("Could not fetch the category list");
         }
     }
 
-
-    useEffect( () => {
+    useEffect(() => {
         fetchSublinks();
-    },[0] )
-
+    }, [0])
 
     // ! ***************************************
 
@@ -74,18 +71,53 @@ const NavBar = () => {
                             // in this we need return if we write {} this brackets
                             return (<li key={index}>
                                 {ele.title === "Catalog" ? (
-                                        <div className={`flex flex-row w-full justify-center items-center gap-1`}>
+                                        <div
+                                            className={`z-10 flex flex-row w-full relative justify-center items-center gap-1 group`}>
                                             <div>
                                                 {ele?.title}
                                             </div>
                                             <div>
                                                 <IoIosArrowDown/>
                                             </div>
-                                        </div>)
-                                    : (<Link to={ele?.path}>
+                                            {/* ? after hover this block is visible  */}
+                                            <div className={` invisible absolute left-[50%] top-[50%]
+                                            translate-x-[-50%] translate-y-[25%]
+                                             flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900
+                                              opacity-0 transition-all duration-200  group-hover:opacity-100  group-hover:visible   
+                                             w-[300px] 
+                                              `}>
+                                                <div className={`absolute left-[55%] rounded-[3px]  bottom-[85%] h-6 w-6 rotate-45    
+                                                bg-richblack-5 `}></div>
 
+                                                {
+                                                    subLinks.length ? (
+                                                        subLinks.map((ele, index) => (
+                                                                        <Link to={`${ele.link}`} key={index}
+                                                                        className={`h-[30px] py-[20px] px-2  text-[17px] rounded-md flex hover:bg-richblack-100 items-center`}>
+                                                                            {ele.title}
+
+                                                                        </Link>
+
+                                                                    )
+                                                    )
+
+
+
+                                                    ):(<div></div>)
+
+
+
+                                                }
+
+
+
+
+                                            </div>
+                                        </div>) :
+                                    (<Link to={ele?.path}>
                                         <div
-                                            className={`${matchRoute(ele.path) ? "text-yellow-5 font-semibold"
+                                            className={`${matchRoute(ele.path)
+                                                ? "text-yellow-5 font-semibold"
                                                 : "text-richblack-25"}`}>
                                             {ele?.title}
                                         </div>
@@ -136,8 +168,6 @@ const NavBar = () => {
                     {
                         token !== null && (<ProfileDropDown/>)
                     }
-
-
                 </div>
             </div>
         </div>);
