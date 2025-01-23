@@ -6,7 +6,7 @@ import {IoMdArrowBack} from "react-icons/io";
 import {getPasswordResetToken} from "../services/oprations/authApi";
 import Loader from "../components/common/Loader";
 
-;
+
 
 const ForgotPassword = () => {
 
@@ -47,8 +47,9 @@ const ForgotPassword = () => {
                                     !emailSent
                                     && (
                                         <label htmlFor="email" className={`flex w-[50%] flex-col gap-2 `}>
-                                            <p className={` text-[13px] text-richblack-300`}>Email address <span
-                                                className={`text-red`}>*</span></p>
+                                            <p className={` text-[0.875rem] text-richblack-300`}>
+                                                Email address <sup
+                                                className={`text-pink-200`}>*</sup></p>
                                             <input
                                                 required
                                                 type="email"
