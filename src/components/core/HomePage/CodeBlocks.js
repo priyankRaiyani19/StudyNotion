@@ -6,7 +6,7 @@ import {TypeAnimation} from "react-type-animation";
 
 
 const CodeBlocks = (
-    {position, heading, subHeading,timer, ctabtn1, ctabtn2, codeBlock, headingWidth ,backgroundGradient, codeColor}
+    {position, heading, subHeading, timer, ctabtn1, ctabtn2, codeBlock, headingWidth, backgroundGradient, codeColor}
 ) => {
     return (
         <div className={`flex ${position} md:flex-row flex-col md:my-20 my-5 justify-between gap-10`}>
@@ -15,7 +15,7 @@ const CodeBlocks = (
 
             <div className=" lg:w-[50%] sm:[100%]  flex flex-col gap-8 ">
                 <div className={` ${headingWidth}`}>
-                {heading}
+                    {heading}
                 </div>
                 <div className="text-richblack-300 font-bold    ">
                     {subHeading}
@@ -39,9 +39,9 @@ const CodeBlocks = (
 
             {/* * Section 2: code part  */}
             <div className={`flex bg-transparent h-fit flex-row text-[15px]  lg:w-[500px]  w-[90%] py-4`}>
-            {/*todo create gradient in background/}*/}
+                {/*todo create gradient in background/}*/}
                 {backgroundGradient}
-            {/*    <div className={` flex flex-row bg-gradient-to-t rounded-[100%] from-blue-25 to-blue-25 h-64 text-[15px]  w-[500px] py-4 `}>*/}
+                {/*    <div className={` flex flex-row bg-gradient-to-t rounded-[100%] from-blue-25 to-blue-25 h-64 text-[15px]  w-[500px] py-4 `}>*/}
                 <div className="  text-center z-10 flex flex-col w-[10%]   text-richblack-400 font-inter">
                     <p>1</p>
                     <p>2</p>
@@ -55,29 +55,29 @@ const CodeBlocks = (
                     <p>10</p>
                     <p>11</p>
                     <p className={`md:hidden`}>12</p>
-                    <p className={`md:hidden`} >13</p>
+                    <p className={`md:hidden`}>13</p>
                 </div>
 
-                <div className={` w-[70%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
+                <div
+                    className={` w-[70%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
                     <TypeAnimation
-                    sequence={[codeBlock,timer,""]}
-                    repeat={Infinity}
-                    cursor={true}
+                        sequence={[codeBlock, timer, ""]}
+                        repeat={Infinity}
+                        cursor={true}
 
-                    style={{
-                        whiteSpace:'pre-line',
-                        display:'block',
-                    }}
+                        style={{
+                            whiteSpace: 'pre-line',
+                            display: 'block',
+                        }}
                         omitDeletionAnimation={true}
                     />
 
 
                 </div>
-                </div>
-
-
-
             </div>
+
+
+        </div>
 
         // </div>
     );

@@ -1,10 +1,11 @@
-import "./App.css";
+ import "./App.css";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import NavBar from "./components/common/NavBar";
 import OpenRoute from "./components/core/Auth/OpneRoute"
+ import ForgotPassword from "./pages/ForgotPassword";
 
 
 
@@ -28,6 +29,12 @@ function App() {
                     path="login"
                     element={
                         <Login/>
+                    }
+                />
+                <Route
+                    path="forgot-password"
+                    element={
+                        <ForgotPassword/>
                     }
                 />
             </Routes>
