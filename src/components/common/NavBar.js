@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, matchPath} from "react-router-dom";
 import Logo from '../../assets/Logo/Logo-Full-Light.png';
 import {NavbarLinks} from '../../data/navbar-links'
@@ -100,7 +100,8 @@ const NavBar = () => {
                                         </div>) :
                                     (<Link to={ele?.path}>
                                         <div
-                                            {/*we are use isActive is easy to highlight to selected route */}
+                                            {/*we are use isActive is easy to highlight to selected route
+                                             (isActive is inbuilt component) */}
                                             className={`${matchRoute(ele.path)
                                                 ? "text-yellow-5 font-semibold"
                                                 : "text-richblack-25"}`}>
