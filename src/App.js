@@ -1,4 +1,4 @@
- import "./App.css";
+  import "./App.css";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import NavBar from "./components/common/NavBar";
 import OpenRoute from "./components/core/Auth/OpneRoute"
  import ForgotPassword from "./pages/ForgotPassword";
+  import OpneRoute from "./components/core/Auth/OpneRoute";
+  import UpdatePassword from "./pages/UpdatePassword";
 
 
 
@@ -16,7 +18,9 @@ function App() {
         <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter select-none ">
             <NavBar/>
             <Routes>
+
                 <Route path="/" element={<Home/>}/>
+
                 <Route
                     path="signup"
                     element={
@@ -25,17 +29,27 @@ function App() {
                         </OpenRoute>
                     }
                 />
+
                 <Route
                     path="login"
                     element={
                         <Login/>
                     }
                 />
+
                 <Route
                     path="forgot-password"
                     element={
                         <ForgotPassword/>
                     }
+                />
+
+                <Route path="update-password/:id"
+                       element={
+                    <OpneRoute>
+                        <UpdatePassword/>
+                    </OpneRoute>
+                       }
                 />
             </Routes>
         </div>

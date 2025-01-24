@@ -3,6 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 import Loader from "../components/common/Loader";
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 import {resetPassword} from "../services/oprations/authApi";
+import {Link, useLocation} from "react-router-dom";
+import login from "./Login";
+import {IoMdArrowBack} from "react-icons/io";
 
 const UpdatePassword = () => {
 
@@ -10,11 +13,12 @@ const UpdatePassword = () => {
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const location = useLocation();
     const [formData, setFormData] = useState({
         password: "",
         confirmPassword: "",
     });
-    const {password,confirmPassword} = formData;
+    const {password, confirmPassword} = formData;
 
     const handleOnChange = (e) => {
         setFormData((prevData) => ({
@@ -22,82 +26,109 @@ const UpdatePassword = () => {
             [e.target.name]: e.target.value,
         }));
     }
-    const handleOnSubmit =(e)=>{
+    const handleOnSubmit = (e) => {
         e.preventDefault();
-        dispatch(resetPassword(password, confirmPassword));
+        const token = location.pathname.split("/").at(-1);
+        login(token);
+        dispatch(resetPassword(password, confirmPassword, token));
     }
 
     return (
         <div>
             {
-                loading ? <Loader/> : (
+                loading ?
+                    (<div className={`ml-[10%] items-center`}>
+                        <Loader/>
+                    </div>)
+                    : (
 
-                    <div>
-                        <h1>
-                            Choose New Password
-                        </h1>
-                        <p>
-                            Almost done. Enter your new password and youre all set.
-                        </p>
+                        <div>
 
-                        <form onSubmit={handleOnSubmit}>
-                            <label htmlFor="newPassword">
-                                <p>
-                                    New password:
-                                </p>
-                                <input
-                                    required
-                                    type={showPassword ? "text" : "password"}
-                                    name="newpassword"
-                                    value={newpassword}
-                                    onChange={handleOnChange}
-                                    placeholder="Enter Password"
-                                    style={{
-                                        boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                                    }}
-                                    className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
-                                />
-                                <span
-                                    onClick={() => setShowPassword((prev) => !prev)}
-                                    className="absolute right-3 top-[38px] z-[10] cursor-pointer"
-                                >
+                            <h1>
+                                Choose New Password
+                            </h1>
+
+                            <p>
+                                Almost done. Enter your new password and you are all set.
+                            </p>
+
+                            <form onSubmit={handleOnSubmit}>
+
+                                {/*Password*/}
+                                <label htmlFor="newPassword">
+                                    <p>
+                                        New password:
+                                    </p>
+                                    <input
+                                        required
+                                        type={showPassword ? "text" : "password"}
+                                        name="newpassword"
+                                        value={password}
+                                        onChange={handleOnChange}
+                                        placeholder="Enter Password"
+                                        style={{
+                                            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                                        }}
+                                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+                                    />
+                                    <span
+                                        onClick={() => setShowPassword((prev) => !prev)}
+                                        className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+                                    >
           {showPassword ? (
               <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/>
           ) : (
               <AiOutlineEye fontSize={24} fill="#AFB2BF"/>
           )}
                                 </span>
-                            </label>
-                            <label htmlFor="confirmPassword">
-                                <p>
-                                    Confirm Password:
-                                </p>
-                                <input
-                                    required
-                                    type={showConfirmPassword ? "text" : "password"}
-                                    name="confirmpassword"
-                                    value={confirmPassword}
-                                    onChange={handleOnChange}
-                                    placeholder="Enter Password"
-                                    style={{
-                                        boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                                    }}
-                                    className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
-                                />
-                                <span
-                                    onClick={() => setShowConfirmPassword((prev) => !prev)}
-                                    className="absolute right-3 top-[38px] z-[10] cursor-pointer"
-                                >
+                                </label>
+
+                                {/*confirm Password*/}
+                                <label htmlFor="confirmPassword">
+                                    <p>
+                                        Confirm Password:
+                                    </p>
+                                    <input
+                                        required
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        name="confirmpassword"
+                                        value={confirmPassword}
+                                        onChange={handleOnChange}
+                                        placeholder="Enter Password"
+                                        style={{
+                                            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+                                        }}
+                                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+                                    />
+                                    <span
+                                        onClick={() => setShowConfirmPassword((prev) => !prev)}
+                                        className="absolute right-3 top-[38px] z-[10] cursor-pointer">
           {showConfirmPassword ? (
               <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/>
           ) : (
               <AiOutlineEye fontSize={24} fill="#AFB2BF"/>
           )}
                                 </span>
-                            </label>
-                        </form>
-                    </div>
-                )
+                                </label>
+
+                                <button type={"submit"}>
+                                    Reset Password
+                                </button>
+
+                            </form>
+
+                            <div className={`mt-2`}>
+                                <Link to="/login" className={`flex  items-center gap-2`}>
+                                    <div><IoMdArrowBack/>
+                                    </div>
+                                    <p>
+                                        Back To Login
+                                    </p>
+                                </Link>
+                            </div>
+
+                        </div>
+                    )
             }
         </div>
     );

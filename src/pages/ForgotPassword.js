@@ -25,7 +25,6 @@ const ForgotPassword = () => {
                 loading
                     ? (<div className={`ml-[10%] items-center`}>
                         <Loader/>
-
                     </div>)
                     : (
                         <div className="flex ml-[50px] flex-col justify-center items-start gap-2">

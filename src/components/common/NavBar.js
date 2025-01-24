@@ -100,8 +100,8 @@ const NavBar = () => {
                                         </div>) :
                                     (<Link to={ele?.path}>
                                         <div
-                                            {/*we are use isActive is easy to highlight to selected route
-                                             (isActive is inbuilt component) */}
+                                             // we are use isActive is easy to highlight to selected route
+                                             // (isActive is inbuilt component)
                                             className={`${matchRoute(ele.path)
                                                 ? "text-yellow-5 font-semibold"
                                                 : "text-richblack-25"}`}>
