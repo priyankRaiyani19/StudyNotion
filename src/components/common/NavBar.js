@@ -12,7 +12,7 @@ import {categories} from "../../services/apis";
 
 
 const NavBar = () => {
-    console.log("Printing base url: ", process.env.REACT_APP_BASE_URL);
+    // console.log("Printing base url: ", process.env.REACT_APP_BASE_URL);
     const {token} = useSelector((state) => state.auth);
     const {user} = useSelector((state) => state.profile);
     const {totalItems} = useSelector((state) => state.cart)
@@ -23,9 +23,9 @@ const NavBar = () => {
     const fetchSublinks = async () => {
         try {
             const result = await apiConnector("GET", categories.CATEGORIES_API);
-            console.log("Printing SubLinks result:", result);
+            // console.log("Printing SubLinks result:", result);
             setSubLinks(result.data.data);
-            console.log("Printing SubLinks result:", subLinks);
+            // console.log("Printing SubLinks result:", subLinks);
         } catch (error) {
             console.log("Could not fetch the category list");
         }
@@ -120,7 +120,7 @@ const NavBar = () => {
                     {
                         user && user?.accountType !== "Instructor" && (
                             <Link to={"/dashboard/cart"} className={`relative`}>
-                                <IoCartOutline/>
+                                <IoCartOutline className={`text-white`}/>
                                 {
                                     totalItems > 0 && (
                                         <span>
