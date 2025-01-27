@@ -68,7 +68,6 @@ const About = () => {
                         </div>
                         <div>
                             <img src={FoundingStory} alt="not found"/>
-
                         </div>
                     </div>
                 </div>
