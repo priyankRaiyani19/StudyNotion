@@ -117,7 +117,6 @@ const VerifyEmail = () => {
                                 </Link>
                             </div>
                         </div>
-
                     )
             }
         </div>

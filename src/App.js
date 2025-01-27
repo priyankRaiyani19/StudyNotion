@@ -1,17 +1,15 @@
-  import "./App.css";
+import "./App.css";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import NavBar from "./components/common/NavBar";
 import OpenRoute from "./components/core/Auth/OpneRoute"
- import ForgotPassword from "./pages/ForgotPassword";
-  import OpneRoute from "./components/core/Auth/OpneRoute";
-  import UpdatePassword from "./pages/UpdatePassword";
-  import VerifyEmail from "./pages/VerifyEmail";
-
-
-
+import ForgotPassword from "./pages/ForgotPassword";
+import OpneRoute from "./components/core/Auth/OpneRoute";
+import UpdatePassword from "./pages/UpdatePassword";
+import VerifyEmail from "./pages/VerifyEmail";
+import About from "./pages/About";
 
 
 function App() {
@@ -26,7 +24,7 @@ function App() {
                     path="signup"
                     element={
                         <OpenRoute>
-                        <Signup/>
+                            <Signup/>
                         </OpenRoute>
                     }
                 />
@@ -35,7 +33,7 @@ function App() {
                     path="login"
                     element={
                         <OpenRoute>
-                            <Login />
+                            <Login/>
                         </OpenRoute>
                     }
                 />
@@ -44,23 +42,30 @@ function App() {
                     path="forgot-password"
                     element={
                         <OpenRoute>
-                            <ForgotPassword />
+                            <ForgotPassword/>
                         </OpenRoute>
                     }
                 />
 
                 <Route path="update-password/:id"
                        element={
-                    <OpneRoute>
-                        <UpdatePassword/>
-                    </OpneRoute>
+                           <OpneRoute>
+                               <UpdatePassword/>
+                           </OpneRoute>
                        }
                 />
                 <Route path="verify-email"
                        element={
-                    <OpneRoute>
-                        <VerifyEmail/>
-                    </OpneRoute>
+                           <OpneRoute>
+                               <VerifyEmail/>
+                           </OpneRoute>
+                       }
+                />
+                <Route path="about"
+                       element={
+                           <OpneRoute>
+                               <About/>
+                           </OpneRoute>
                        }
                 />
             </Routes>
