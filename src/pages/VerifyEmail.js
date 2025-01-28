@@ -6,7 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {IoMdArrowBack} from "react-icons/io";
 import {PiArrowClockwiseBold} from "react-icons/pi";
 import {sendOtp, signUp} from "../services/oprations/authApi";
-import colors from "tailwindcss/colors";
+// import colors from "tailwindcss/colors";
 
 
 const VerifyEmail = () => {
@@ -16,6 +16,7 @@ const VerifyEmail = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // only access when user has filled the signup data
         if (!signupData) {
             navigate("/signup");
         }
@@ -42,15 +43,16 @@ const VerifyEmail = () => {
             password,
             confirmPassword,
             otp,
-            navigate))
+            navigate,))
     }
 
 
     return (
         <div className={`text-white flex mx-[35%] w-full my-auto`}>
             {
-                loading
+                loading === true
                     ? (<div className={`ml-[10%] items-center`}>
+
                         <Loader/>
                     </div>)
                     : (
@@ -98,7 +100,7 @@ const VerifyEmail = () => {
                             </form>
 
                             <div className={`mt-5 w-full text-white flex justify-between`}>
-                                <Link to="/login" className={`flex  items-center gap-2`}>
+                                <Link to="/signup" className={`flex  items-center gap-2`}>
                                     <div><IoMdArrowBack/>
                                     </div>
                                     <p>
@@ -108,7 +110,7 @@ const VerifyEmail = () => {
 
                                 <Link to="/verify-email" className={`flex  items-center gap-2`}>
                                     <button
-                                        onClick={() => dispatch(sendOtp(signupData.email))}
+                                        onClick={() => dispatch(sendOtp(signupData.email, navigate))}
                                         className={`flex  items-center  justify-center text-blue-200 gap-2`}
                                     >
                                         <PiArrowClockwiseBold/>

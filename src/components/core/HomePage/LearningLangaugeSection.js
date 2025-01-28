@@ -3,7 +3,7 @@ import HighlightText from "./HighlightText";
 import knowYourProgress from "../../../assets/Images/Know_your_progress.png";
 import compareWithOthers from "../../../assets/Images/Compare_with_others.png";
 import planYourLessons from "../../../assets/Images/Plan_your_lessons.png";
-import CTAButton from "./CTAButton";
+import CTAButton from "../../common/CTAButton";
 
 
 

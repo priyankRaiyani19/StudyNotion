@@ -4,23 +4,24 @@ import HighlightText from "../HomePage/HighlightText";
 const Quote = () => {
     return (
         <div>
-            We are passionate about revolutionizing the way we learn. Our innovative platform
-            <HighlightText text={"combines technology"}/>
+            <blockquote>
+                We are passionate about revolutionizing the way we learn. Our innovative platform
+                <HighlightText text={"combines technology"}/>
 
-            <span className={`text-red`}>
+                <span className={`text-red`}>
                 {" "}
-                expertise
+                    expertise
             </span>
-            <span>
+                <span>
                 {" "}
-                 and community to create an
+                    and community to create an
             </span>
-            <span className="text-red">
+                <span className="text-red">
                 {" "}
-                 unparalleled educational experience
+                    unparalleled educational experience
             </span>
-            .
-
+                .
+            </blockquote>
         </div>
     );
 };

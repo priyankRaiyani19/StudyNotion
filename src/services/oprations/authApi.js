@@ -17,9 +17,12 @@ const {
 
 export function sendOtp(email, navigate) {
     return async (dispatch) => {
-        // const toastId = toast.loading("Loading...")
+        const toastId = toast.loading("Loading...")
+
         dispatch(setLoading(true))
+        console.log("loading start")
         try {
+
             const response = await apiConnector("POST", SENDOTP_API, {
                 email,
                 checkUserPresent: true,
@@ -39,7 +42,7 @@ export function sendOtp(email, navigate) {
             toast.error("Could Not Send OTP")
         }
         dispatch(setLoading(false))
-        // toast.dismiss(toastId)
+        toast.dismiss(toastId)
     }
 }
 

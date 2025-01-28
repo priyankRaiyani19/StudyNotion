@@ -169,20 +169,19 @@ const Footer = () => {
                                 <div
                                     key={i}
                                     className={` ${
-                                        BottomFooter.length - 1 === i
+                                        BottomFooter.length-1 === i
                                             ? ""
-                                            : "border-r border-richblack-700 cursor-pointer hover:text-richblack-50 transition-all duration-200"
+                                            : "border-r border-richblack-700 cursor-pointer hover:text-yellow-200 transition-all duration-200"
                                     } px-3 `}
                                 >
-                                    <Link to={ele.split(" ").join("-").toLocaleLowerCase()}>
+                                    <Link to={ele.split(" ").join("-").toLocaleLowerCase()} className={`hover:text-yellow-200 `}>
                                         {ele}
                                     </Link>
                                 </div>
                             );
                         })}
                     </div>
-
-                    <div className="text-center">Made with ❤️ CodeHelp © 2023 Studynotion</div>
+                    <div className="text-center">Made with ❤️ PJ © 2030 Studynotion</div>
                 </div>
             </div>
         </div>

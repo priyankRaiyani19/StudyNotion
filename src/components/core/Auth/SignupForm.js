@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import { useDispatch } from "react-redux"
+import {useDispatch} from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { sendOtp } from "../../../services/oprations/authApi"
@@ -12,6 +12,7 @@ import Tab from "../../common/Tab"
 function SignupForm() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
 
     // student or instructor
     const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT)
@@ -31,6 +32,7 @@ function SignupForm() {
 
     // Handle input fields, when some value changes
     const handleOnChange = (e) => {
+
         setFormData((prevData) => ({
             ...prevData,
             [e.target.name]: e.target.value,
