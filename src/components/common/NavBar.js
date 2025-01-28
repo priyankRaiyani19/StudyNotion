@@ -35,6 +35,11 @@ const NavBar = () => {
     const matchRoute = (route) => {
         return matchPath({ path: route }, location.pathname);
     };
+    const handleLinkClick = () => {
+
+        setIsMenuOpen(false); // Close the menu on any link click
+
+    };
 
     return (
         <div className="flex z-20 w-full items-center justify-center h-14 border-b-[1px] border-b-richblack-600 bg-richblack-900">
@@ -75,12 +80,13 @@ const NavBar = () => {
                         flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200
                         group-hover:opacity-100 lg:group-hover:visible w-[300px]"
                                         >
-                                            <div className="absolute left-[55%] top-[-10px] bottom-full h-6 w-6 rotate-45 bg-richblack-5"></div>
+                                            <div className="absolute left-[55%] top-[px] bottom-full h-6 w-6 rotate-45 bg-richblack-5"></div>
                                             {subLinks.length ? (
                                                 subLinks.map((link, idx) => (
                                                     <Link
                                                         to={`${link.link}`}
                                                         key={idx}
+                                                        onClick={handleLinkClick} // Close the menu on link click
                                                         className="h-[30px] py-[20px] px-2 text-richblack-900 text-[17px] rounded-md flex hover:bg-richblack-100 items-center"
                                                     >
                                                         {link.name}
@@ -92,7 +98,9 @@ const NavBar = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <Link to={ele.path}>
+                                    <Link
+                                     to={ele.path} onClick={handleLinkClick} >{/* Close the menu on link click */}
+
                                         <div
                                             className={`${
                                                 matchRoute(ele.path)
