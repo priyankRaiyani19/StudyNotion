@@ -123,12 +123,12 @@ const NavBar = () => {
                     {token === null ? (
                         <>
                             <Link to="/login">
-                                <button className="border border-richblack-700 bg-richblack-800 py-2 px-4 text-richblack-100 rounded-md hover:bg-richblack-900">
+                                <button className="lg:border lg:border-richblack-700 lg:bg-richblack-800 lg:py-2 lg:px-4 text-richblack-100 lg:rounded-md hover:bg-richblack-900">
                                     Log In
                                 </button>
                             </Link>
                             <Link to="/signup">
-                                <button className="border border-yellow-500 bg-yellow-500 py-2 px-4 text-white rounded-md hover:bg-yellow-600">
+                                <button className="lg:border lg:border-yellow-500 lg:bg-yellow-500 lg:py-2 lg:px-4 text-white rounded-md lg:hover:bg-yellow-600">
                                     Sign Up
                                 </button>
                             </Link>
