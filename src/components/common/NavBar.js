@@ -37,7 +37,7 @@ const NavBar = () => {
     };
 
     return (
-        <div className="flex w-full items-center justify-center h-14 border-b-[1px] border-b-richblack-600 bg-richblack-900">
+        <div className="flex z-20 w-full items-center justify-center h-14 border-b-[1px] border-b-richblack-600 bg-richblack-900">
             <div className="flex flex-row items-center justify-between max-w-maxContent w-11/12">
 
                 {/* Hamburger Menu Icon (Mobile and Tablet) */}
@@ -60,7 +60,7 @@ const NavBar = () => {
                 <nav
                     className={`${
                         isMenuOpen ? "block" : "hidden"
-                    } lg:flex absolute lg:ml-auto lg:static top-14 left-0 w-full lg:w-auto bg-richblack-900 lg:bg-transparent z-10 lg:z-auto`}
+                    } lg:flex absolute  lg:ml-auto lg:static top-14 left-0 w-full lg:w-auto bg-richblack-900 lg:bg-transparent z-20 lg:z-auto`}
                 >
                     <ul className="flex flex-col lg:flex-row items-center gap-x-6 lg:gap-x-8 text-[14px] text-richblack-25 lg:justify-center">
                         {NavbarLinks.map((ele, index) => (
@@ -68,13 +68,14 @@ const NavBar = () => {
                                 {ele.title === "Catalog" ? (
                                     <div className="relative group flex flex-col lg:flex-row items-center gap-1">
                                         <div>{ele.title}</div>
-                                        <IoIosArrowDown />
+                                       <div className={`lg:block hidden`}> <IoIosArrowDown />
+                                           </div>
                                         <div
                                             className="invisible absolute left-1/2 top-full lg:top-[50%] transform -translate-x-1/2 translate-y-2 lg:translate-y-[15%]
                         flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200
                         group-hover:opacity-100 lg:group-hover:visible w-[300px]"
                                         >
-                                            <div className="absolute left-[55%] bottom-full h-6 w-6 rotate-45 bg-richblack-5"></div>
+                                            <div className="absolute left-[55%] top-[-10px] bottom-full h-6 w-6 rotate-45 bg-richblack-5"></div>
                                             {subLinks.length ? (
                                                 subLinks.map((link, idx) => (
                                                     <Link
