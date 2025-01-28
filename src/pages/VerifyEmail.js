@@ -20,7 +20,7 @@ const VerifyEmail = () => {
         if (!signupData) {
             navigate("/signup");
         }
-    }, []);
+    });
 
     const handleVerifyAndSignup = (e) => {
         e.preventDefault();
