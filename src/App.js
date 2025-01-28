@@ -14,7 +14,7 @@ import About from "./pages/About";
 
 function App() {
     return (
-        <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter select-none ">
+        <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter  ">
             <NavBar/>
             <Routes>
 

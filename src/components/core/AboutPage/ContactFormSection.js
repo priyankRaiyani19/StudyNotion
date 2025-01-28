@@ -3,14 +3,14 @@ import ContactUsForm from "../ContactUs/ContactUsForm";
 
 const ContactFormSection = () => {
     return (
-        <div className={`mx-auto flex flex-col items-center justify-center gap-4`}>
-            <h1>
-                Get In Touch
+        <div className={`mx-auto flex flex-col items-center justify-center `}>
+            <h1 className={`text-4xl font-bold  mb-4`}>
+                Get in Touch
             </h1>
-            <p>
+            <p className={`text-richblack-200`}>
                 We’d love to here for you, Please fill out this form.
             </p>
-            <div>
+            <div className={`mt-[70px]`}>
                 <ContactUsForm />
             </div>
         </div>
