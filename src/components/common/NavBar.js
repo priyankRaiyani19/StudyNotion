@@ -82,7 +82,7 @@ const NavBar = () => {
                         group-hover:opacity-100 lg:group-hover:visible w-[300px]"
                                         >
                                             <div
-                                                className="absolute left-[55%] top-[px] bottom-full h-6 w-6 rotate-45 bg-richblack-5"></div>
+                                                className="absolute left-[55%] top-[-10px] bottom-full h-6 w-6 rotate-45 bg-richblack-5"></div>
                                             {subLinks.length ? (
                                                 subLinks.map((link, idx) => (
                                                     <Link

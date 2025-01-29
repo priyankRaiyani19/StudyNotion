@@ -181,7 +181,7 @@ const Footer = () => {
                             );
                         })}
                     </div>
-                    <div className="text-center">Made with ❤️ PJ Raiyani © 2030 Studynotion</div>
+                    <div className="text-center">Made with ❤️ PJ Raiyani © 2025 Studynotion</div>
                 </div>
             </div>
         </div>
