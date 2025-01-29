@@ -10,6 +10,7 @@ import OpneRoute from "./components/core/Auth/OpneRoute";
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
+import ContactUs from "./pages/ContactUs";
 
 
 function App() {
@@ -65,6 +66,14 @@ function App() {
                        element={
                            <OpneRoute>
                                <About/>
+                           </OpneRoute>
+                       }
+                />
+
+            <Route path="contact"
+                       element={
+                           <OpneRoute>
+                               <ContactUs/>
                            </OpneRoute>
                        }
                 />
