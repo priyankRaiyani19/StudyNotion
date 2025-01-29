@@ -1,17 +1,19 @@
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { sendOtp } from "../../../services/oprations/authApi"
-import { setSignupData } from "../../../slices/auth.slice"
+import {setSignupData} from "../../../slices/auth.slice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
 import Tab from "../../common/Tab"
+import Loader from "../../common/Loader";
 
 function SignupForm() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
 
 
     // student or instructor
@@ -38,6 +40,13 @@ function SignupForm() {
             [e.target.name]: e.target.value,
         }))
     }
+    const loaderLoading = () => {
+        return (
+            <div>
+                <Loader/>
+            </div>
+        )
+    }
 
     // Handle Form Submission
     const handleOnSubmit = (e) => {
@@ -50,13 +59,15 @@ function SignupForm() {
         const signupData = {
             ...formData,
             accountType,
+
         }
 
         // Setting signup data to state
         // To be used after otp verification
         dispatch(setSignupData(signupData))
         // Send OTP to user for verification
-        dispatch(sendOtp(formData.email, navigate))
+        dispatch(sendOtp(formData.email, navigate));
+
 
         // Reset
         setFormData({
@@ -67,6 +78,7 @@ function SignupForm() {
             confirmPassword: "",
         })
         setAccountType(ACCOUNT_TYPE.STUDENT)
+
     }
 
     // data to pass to Tab component
@@ -200,6 +212,7 @@ function SignupForm() {
                     </label>
                 </div>
                 <button
+                    onClick={loaderLoading}
                     type="submit"
                     className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
                 >

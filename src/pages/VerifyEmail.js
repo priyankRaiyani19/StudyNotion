@@ -1,128 +1,112 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import { useEffect, useState } from "react";
+import OtpInput from "react-otp-input";
+import { Link } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
+import { RxCountdownTimer } from "react-icons/rx";
+import { useDispatch, useSelector } from "react-redux";
+import { sendOtp, signUp } from "../services/oprations/authApi";
+import { useNavigate } from "react-router-dom";
 import Loader from "../components/common/Loader";
-import OTPInput from "react-otp-input";
-import {Link, useNavigate} from "react-router-dom";
-import {IoMdArrowBack} from "react-icons/io";
-import {PiArrowClockwiseBold} from "react-icons/pi";
-import {sendOtp, signUp} from "../services/oprations/authApi";
-// import colors from "tailwindcss/colors";
+import {setSignupData} from "../slices/auth.slice";
 
-
-const VerifyEmail = () => {
-    const {signupData, loading} = useSelector((state) => state.auth)
+function VerifyEmail() {
+    const [otp, setOtp] = useState("");
+    const { signupData, loading } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
-    const [otp, setOtp] = React.useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
-        // only access when user has filled the signup data
+        // Only allow access of this route when user has filled the signup form
         if (!signupData) {
             navigate("/signup");
         }
-    });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleVerifyAndSignup = (e) => {
         e.preventDefault();
-        // fetch data from signUpData which is in auth.slice and it's fetch from payload
         const {
             accountType,
             firstName,
             lastName,
             email,
             password,
-            confirmPassword
+            confirmPassword,
         } = signupData;
 
-        // console.log(firstName, lastName, email, password);
-        dispatch(signUp(
-            accountType,
-            firstName,
-            lastName,
-            email,
-            password,
-            confirmPassword,
-            otp,
-            navigate,))
-    }
-
+        dispatch(
+            signUp(
+                accountType,
+                firstName,
+                lastName,
+                email,
+                password,
+                confirmPassword,
+                otp,
+                navigate
+            )
+        );
+    };
 
     return (
-        <div className={`text-white flex mx-[35%] w-full my-auto`}>
-            {
-                loading === true
-                    ? (<div className={`ml-[10%] items-center`}>
-
-                        <Loader/>
-                    </div>)
-                    : (
-
-                        <div className={`flex ml-[50px] flex-col justify-center items-start gap-2`}>
-
-                            <h1 className={` text-white text-3xl font-bold`}>
-                                Verify Email
-                            </h1>
-
-                            <p className="mt-1 w-[85%] text-richblack-300">
-                                A verification code has been sent to you. Enter the code below
-                            </p>
-
-                            <form onSubmit={handleVerifyAndSignup}
-                                  className={`mt-[20px] flex flex-col w-full  gap-[10px] mx-auto`}>
-
-                                <OTPInput
-                                    inputStyle={{
-                                        width: '50px',
-                                        height: '50px',
-                                        fontSize: '25px',
-                                        border: '2px solid #ccc',
-                                        background: "#2C333F",
-                                        borderRadius: '10px',
-                                        textAlign: 'center',
-                                        marginLeft: '10px',
-                                        marginRight: '20px',
-
+        <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center">
+            {loading ? (
+                <div>
+                    <Loader/>
+                </div>
+            ) : (
+                <div className="max-w-[500px] p-4 lg:p-8">
+                    <h1 className="text-richblack-5 font-semibold text-[1.875rem] leading-[2.375rem]">
+                        Verify Email
+                    </h1>
+                    <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
+                        A verification code has been sent to you. Enter the code below
+                    </p>
+                    <form onSubmit={handleVerifyAndSignup}>
+                        <OtpInput
+                            value={otp}
+                            onChange={setOtp}
+                            numInputs={6}
+                            renderInput={(props) => (
+                                <input
+                                    {...props}
+                                    placeholder="-"
+                                    style={{
+                                        boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                                     }}
-
-                                    value={otp}
-                                    onChange={setOtp}
-                                    numInputs={6}
-                                    placeholder={'******'}
-                                    renderSeparator={<span>-</span>}
-                                    renderInput={(props) => <input {...props}
-                                    />}
+                                    className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
                                 />
-
-                                <button type={"submit"} className={`bg-yellow-100 flex justify-center  items-center
-                                 rounded-md w-[98%]  h-[45px]`}>
-                                    Verify Email
-                                </button>
-                            </form>
-
-                            <div className={`mt-5 w-full text-white flex justify-between`}>
-                                <Link to="/signup" className={`flex  items-center gap-2`}>
-                                    <div><IoMdArrowBack/>
-                                    </div>
-                                    <p>
-                                        Back To SignUp
-                                    </p>
-                                </Link>
-
-                                <Link to="/verify-email" className={`flex  items-center gap-2`}>
-                                    <button
-                                        onClick={() => dispatch(sendOtp(signupData.email, navigate))}
-                                        className={`flex  items-center  justify-center text-blue-200 gap-2`}
-                                    >
-                                        <PiArrowClockwiseBold/>
-                                        Resend It
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                    )
-            }
+                            )}
+                            containerStyle={{
+                                justifyContent: "space-between",
+                                gap: "0 6px",
+                            }}
+                        />
+                        <button
+                            type="submit"
+                            className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
+                        >
+                            Verify Email
+                        </button>
+                    </form>
+                    <div className="mt-6 flex items-center justify-between">
+                        <Link to="/signup">
+                            <p className="text-richblack-5 flex items-center gap-x-2">
+                                <BiArrowBack /> Back To Signup
+                            </p>
+                        </Link>
+                        <button
+                            className="flex items-center text-blue-100 gap-x-2"
+                            onClick={() => dispatch(sendOtp(signupData.email,navigate))}
+                        >
+                            <RxCountdownTimer />
+                            Resend it
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
-};
+}
 
 export default VerifyEmail;
