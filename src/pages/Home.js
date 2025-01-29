@@ -14,7 +14,7 @@ import ExploreMore from '../components/core/HomePage/ExploreMore'
 const Home = () => {
 
     return (
-        <div>
+        <div >
             {/*Section1  */}
             <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center
                     text-white justify-between'>
@@ -42,7 +42,7 @@ const Home = () => {
                     from instructors.
                 </div>
 
-                <div className='flex flex-row  gap-7 mt-8'>
+                <div className='flex flex-row  gap-7 mt-8 ml-[-100px] lg:ml-0 '>
                     <CTAButton active={true} linkto={"/signup"}>
                         Learn More
                     </CTAButton>

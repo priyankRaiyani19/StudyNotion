@@ -49,7 +49,7 @@ const ExploreMore = () => {
             {/* Dropdown for Mobile */}
             <div className="sm:block lg:hidden relative mb-10 md:ml-[250px]" ref={dropdownRef}>
                 <button
-                    className="w-[50%] bg-richblack-800 text-richblack-200 p-2 rounded-full
+                    className="w-[50%] mx-auto bg-richblack-800 text-richblack-200 p-2 rounded-full
             font-medium flex items-center justify-around"
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
