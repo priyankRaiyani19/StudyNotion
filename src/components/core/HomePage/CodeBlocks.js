@@ -61,7 +61,7 @@ const CodeBlocks = (
                 </div>
 
                 <div
-                    className={` w-[60%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
+                    className={` w-[65%] md:w-[90%] bg-transparent z-10 flex  flex-col gap-2 font-mono font-bold ${codeColor} pr-2`}>
                     <TypeAnimation
                         sequence={[codeBlock, timer, ""]}
                         repeat={Infinity}
