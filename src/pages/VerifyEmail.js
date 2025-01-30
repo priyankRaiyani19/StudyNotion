@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendOtp, signUp } from "../services/oprations/authApi";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/common/Loader";
-import {setSignupData} from "../slices/auth.slice";
 
 function VerifyEmail() {
     const [otp, setOtp] = useState("");
@@ -62,7 +61,7 @@ function VerifyEmail() {
                     <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
                         A verification code has been sent to you. Enter the code below
                     </p>
-                    <form onSubmit={handleVerifyAndSignup}>
+                    <form onSubmit={handleVerifyAndSignup()}>
                         <OtpInput
                             value={otp}
                             onChange={setOtp}

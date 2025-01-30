@@ -11,6 +11,11 @@ import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
+import Error from "./pages/Error";
+// import SideBar from "./components/core/DashBoard/SideBar";
+import MyProfile from "./components/core/DashBoard/MyProfile";
+import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import DashBoard from "./pages/DashBoard";
 
 
 function App() {
@@ -63,20 +68,26 @@ function App() {
                        }
                 />
                 <Route path="about"
-                       element={
-                           <OpneRoute>
-                               <About/>
-                           </OpneRoute>
-                       }
+                       element={<About/>}
                 />
 
-            <Route path="contact"
-                       element={
-                           <OpneRoute>
-                               <ContactUs/>
-                           </OpneRoute>
-                       }
+                <Route path="contact" element={
+
+                    <ContactUs/>}/>
+
+                <Route
+                    element={
+                        <PrivateRoute>
+                            <DashBoard />
+                        </PrivateRoute>
+                    }
                 />
+
+
+                <Route path="dashboard/my-profile" element={<MyProfile/>}/>
+                <Route path="*" element={<Error/>}/>
+
+
             </Routes>
         </div>
     );
