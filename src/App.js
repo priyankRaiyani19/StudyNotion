@@ -12,10 +12,10 @@ import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import Error from "./pages/Error";
-// import SideBar from "./components/core/DashBoard/SideBar";
 import MyProfile from "./components/core/DashBoard/MyProfile";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import DashBoard from "./pages/DashBoard";
+import Settings from "./components/core/DashBoard/Setting";
 
 
 function App() {
@@ -67,6 +67,7 @@ function App() {
                            </OpneRoute>
                        }
                 />
+
                 <Route path="about"
                        element={<About/>}
                 />
@@ -81,10 +82,14 @@ function App() {
                             <DashBoard />
                         </PrivateRoute>
                     }
-                />
+                >
+                    <Route path="dashboard/my-profile" element={<MyProfile/>}/>
+                    <Route path="dashboard/settings" element={<Settings />} />
+
+                </Route>
 
 
-                <Route path="dashboard/my-profile" element={<MyProfile/>}/>
+
                 <Route path="*" element={<Error/>}/>
 
 

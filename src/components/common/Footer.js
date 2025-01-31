@@ -37,20 +37,38 @@ const Footer = () => {
                                 Company
                             </h1>
                             <div className="flex flex-col gap-2">
-                                {["About", "Careers", "Affiliates"].map((ele, i) => {
+                                {["Home", "About", "Careers", "Affiliates", "Contact"].map((ele, i) => {
                                     return (
                                         <div
                                             key={i}
                                             className="text-[14px] cursor-pointer hover:text-richblack-50
                        transition-all duration-200"
                                         >
-                                            <Link to={ele.toLowerCase()}>{ele}</Link>
+                                            {
+                                                ele === "Home"
+                                                    ? <Link
+                                                        onClick={() => {
+                                                            window.scroll(0, 0)
+                                                        }}
+                                                        to={"/"}>
+                                                        {ele}
+                                                    </Link>
+                                                    : <Link
+                                                        onClick={() => {
+                                                            window.scroll(0, 0)
+                                                        }}
+                                                        to={"/" + ele.toLowerCase()}>
+                                                        {ele}
+                                                    </Link>
+                                            }
+
+
                                         </div>
                                     );
                                 })}
                             </div>
                             <div className="flex gap-3 text-lg">
-                                <FaFacebook/>
+                                <FaFacebook />
                                 <FaGoogle/>
                                 <FaTwitter/>
                                 <FaYoutube/>
@@ -169,12 +187,13 @@ const Footer = () => {
                                 <div
                                     key={i}
                                     className={` ${
-                                        BottomFooter.length-1 === i
+                                        BottomFooter.length - 1 === i
                                             ? ""
                                             : "border-r border-richblack-700 cursor-pointer hover:text-yellow-200 transition-all duration-200"
                                     } px-3 `}
                                 >
-                                    <Link to={ele.split(" ").join("-").toLocaleLowerCase()} className={`hover:text-yellow-200 `}>
+                                    <Link to={ele.split(" ").join("-").toLocaleLowerCase()}
+                                          className={`hover:text-yellow-200 `}>
                                         {ele}
                                     </Link>
                                 </div>
