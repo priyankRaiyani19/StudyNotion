@@ -72,6 +72,7 @@ export function updateProfile(token, formData,navigate) {
         const response = await apiConnector("PUT", UPDATE_PROFILE_DETAILS_API, formData, {
             Authorization: `Bearer ${token}`,
         })
+        console.log(response);
     }
 }
 

@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { sendOtp } from "../../../services/oprations/authApi"
-import { setSignupData} from "../../../slices/auth.slice"
+import {setLoading, setSignupData} from "../../../slices/auth.slice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
 import Tab from "../../common/Tab"
 
@@ -41,6 +41,9 @@ function SignupForm() {
         }))
     }
 
+    // const submitButton = (e) => {
+    //     setLoading(true);
+    // }
 
     // Handle Form Submission
     const handleOnSubmit = (e) => {
@@ -206,6 +209,7 @@ function SignupForm() {
                     </label>
                 </div>
                 <button
+                    // onClick={submitButton}
                     type="submit"
                     className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
                 >

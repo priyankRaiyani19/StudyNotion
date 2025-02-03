@@ -34,7 +34,7 @@ function VerifyEmail() {
         } = signupData;
 
         dispatch(
-            signUp(
+            signUp (
                 accountType,
                 firstName,
                 lastName,
