@@ -16,18 +16,19 @@ import MyProfile from "./components/core/DashBoard/MyProfile";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import DashBoard from "./pages/DashBoard";
 import Settings from "./components/core/DashBoard/Setting";
-import EnrollCourses from "./components/core/DashBoard/EnrollCourses";
+// import EnrollCourses from "./components/core/DashBoard/EnrollCourses";
 import {ACCOUNT_TYPE} from "./utils/constants";
 import EnrolledCourses from "./components/core/DashBoard/EnrollCourses";
 import Cart from "./components/core/DashBoard/Cart";
 import {useSelector} from "react-redux";
+import AddCourse from "./components/core/DashBoard/AddCourse";
 
 
 function App() {
 
     const { user } = useSelector((state) => state.profile)
     return (
-        <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter  ">
+        <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter select-none overflow-y-hidden  ">
             <NavBar/>
             <Routes>
 
@@ -103,6 +104,17 @@ function App() {
                             </>
                         )
                     }
+
+
+                    {
+                        user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+                            <>
+                                <Route path="dashboard/add-course" element={<AddCourse />} />
+
+                            </>
+                        )
+                    }
+
                 </Route>
 
 

@@ -1,20 +1,17 @@
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { sendOtp } from "../../../services/oprations/authApi"
-import {setLoading, setSignupData} from "../../../slices/auth.slice"
+import { setSignupData } from "../../../slices/auth.slice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
 import Tab from "../../common/Tab"
-
 
 function SignupForm() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
-
 
     // student or instructor
     const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT)
@@ -34,16 +31,11 @@ function SignupForm() {
 
     // Handle input fields, when some value changes
     const handleOnChange = (e) => {
-
         setFormData((prevData) => ({
             ...prevData,
             [e.target.name]: e.target.value,
         }))
     }
-
-    // const submitButton = (e) => {
-    //     setLoading(true);
-    // }
 
     // Handle Form Submission
     const handleOnSubmit = (e) => {
@@ -56,15 +48,13 @@ function SignupForm() {
         const signupData = {
             ...formData,
             accountType,
-
         }
 
         // Setting signup data to state
         // To be used after otp verification
         dispatch(setSignupData(signupData))
         // Send OTP to user for verification
-        dispatch(sendOtp(formData.email, navigate));
-
+        dispatch(sendOtp(formData.email, navigate))
 
         // Reset
         setFormData({
@@ -75,7 +65,6 @@ function SignupForm() {
             confirmPassword: "",
         })
         setAccountType(ACCOUNT_TYPE.STUDENT)
-
     }
 
     // data to pass to Tab component
@@ -173,9 +162,9 @@ function SignupForm() {
                             className="absolute right-3 top-[38px] z-[10] cursor-pointer"
                         >
               {showPassword ? (
-                      <AiOutlineEye fontSize={24} fill="#AFB2BF" />
-              ) : (
                   <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+              ) : (
+                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
               )}
             </span>
                     </label>
@@ -200,16 +189,14 @@ function SignupForm() {
                             className="absolute right-3 top-[38px] z-[10] cursor-pointer"
                         >
               {showConfirmPassword ? (
-                      <AiOutlineEye fontSize={24} fill="#AFB2BF" />
-
-              ) : (
                   <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+              ) : (
+                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
               )}
             </span>
                     </label>
                 </div>
                 <button
-                    // onClick={submitButton}
                     type="submit"
                     className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
                 >
