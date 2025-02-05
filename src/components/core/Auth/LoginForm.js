@@ -3,7 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
-import { login } from "../../../services/oprations/authApi"
+import { login } from "../../../services/operations/authApi"
 
 function LoginForm() {
     const navigate = useNavigate()

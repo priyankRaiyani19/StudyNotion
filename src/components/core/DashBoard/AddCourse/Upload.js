@@ -7,8 +7,7 @@ import "video-react/dist/video-react.css"
 import {Player} from "video-react"
 
 export default function Upload({
-                                   name,
-                                   label,
+                                   name, label,
                                    register,
                                    setValue,
                                    errors,

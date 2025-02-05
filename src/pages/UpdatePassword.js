@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../components/common/Loader";
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
-import {resetPassword} from "../services/oprations/authApi";
+import {resetPassword} from "../services/operations/authApi";
 import {Link, useLocation} from "react-router-dom";
 import login from "./Login";
 import {IoMdArrowBack} from "react-icons/io";

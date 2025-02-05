@@ -9,7 +9,7 @@ import {
     addCourseDetails,
     editCourseDetails,
     fetchCourseCategories,
-} from "../../../../../services/oprations/courseDetailsAPI"
+} from "../../../../../services/operations/courseDetailsAPI"
 import { setCourse, setStep } from "../../../../../slices/course.slice"
 import { COURSE_STATUS } from "../../../../../utils/constants"
 import IconButton from "../../../../common/IconButton"
@@ -204,6 +204,7 @@ export default function CourseInformationForm() {
                 </label>
                 <div className="relative">
                     <input
+                        type="number"
                         id="coursePrice"
                         placeholder="Enter Course Price"
                         {...register("coursePrice", {
