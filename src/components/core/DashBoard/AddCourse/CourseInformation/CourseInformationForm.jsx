@@ -32,16 +32,18 @@ export default function CourseInformationForm() {
     const [loading, setLoading] = useState(false)
     const [courseCategories, setCourseCategories] = useState([])
 
-    useEffect(() => {
-        const getCategories = async () => {
-            setLoading(true)
-            const categories = await fetchCourseCategories()
-            if (categories.length > 0) {
-                // console.log("categories", categories)
-                setCourseCategories(categories)
-            }
-            setLoading(false)
+    const getCategories = async () => {
+        setLoading(true)
+        const categories = await fetchCourseCategories()
+        console.log("log token " , token)
+        if (categories.length > 0) {
+            // console.log("categories", categories)
+            setCourseCategories(categories)
         }
+        setLoading(false)
+    }
+    useEffect(() => {
+
         // if form is in edit mode
         if (editCourse) {
             // console.log("data populated", editCourse)
@@ -80,8 +82,8 @@ export default function CourseInformationForm() {
 
     //   handle next button click
     const onSubmit = async (data) => {
-        // console.log(data)
-
+        console.log("data befor call api " ,data)
+        console.log("log token " , token)
         if (editCourse) {
             // const currentValues = getValues()
             // console.log("changes after editing form values:", currentValues)
@@ -147,6 +149,7 @@ export default function CourseInformationForm() {
         formData.append("instructions", JSON.stringify(data.courseRequirements))
         formData.append("thumbnailImage", data.courseImage)
         setLoading(true)
+
         const result = await addCourseDetails(formData, token)
         if (result) {
             dispatch(setStep(2))

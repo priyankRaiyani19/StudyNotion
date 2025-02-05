@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react"
-import { useDropzone } from "react-dropzone"
-import { FiUploadCloud } from "react-icons/fi"
-import { useSelector } from "react-redux"
+import {useEffect, useRef, useState} from "react"
+import {useDropzone} from "react-dropzone"
+import {FiUploadCloud} from "react-icons/fi"
+import {useSelector} from "react-redux"
 
 import "video-react/dist/video-react.css"
-import { Player } from "video-react"
+import {Player} from "video-react"
 
 export default function Upload({
                                    name,
@@ -16,7 +16,7 @@ export default function Upload({
                                    viewData = null,
                                    editData = null,
                                }) {
-    const { course } = useSelector((state) => state.course)
+    const {course} = useSelector((state) => state.course)
     const [selectedFile, setSelectedFile] = useState(null)
     const [previewSource, setPreviewSource] = useState(
         viewData ? viewData : editData ? editData : ""
@@ -31,10 +31,10 @@ export default function Upload({
         }
     }
 
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({
         accept: !video
-            ? { "image/*": [".jpeg", ".jpg", ".png"] }
-            : { "video/*": [".mp4"] },
+            ? {"image/*": [".jpeg", ".jpg", ".png"]}
+            : {"video/*": [".mp4"]},
         onDrop,
     })
 
@@ -48,7 +48,7 @@ export default function Upload({
     }
 
     useEffect(() => {
-        register(name, { required: true })
+        register(name, {required: true})
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [register])
 
@@ -76,7 +76,7 @@ export default function Upload({
                                 className="h-full w-full rounded-md object-cover"
                             />
                         ) : (
-                            <Player aspectRatio="16:9" playsInline src={previewSource} />
+                            <Player aspectRatio="16:9" playsInline src={previewSource}/>
                         )}
                         {!viewData && (
                             <button
@@ -97,9 +97,9 @@ export default function Upload({
                         className="flex w-full flex-col items-center p-6"
                         {...getRootProps()}
                     >
-                        <input {...getInputProps()} ref={inputRef} />
+                        <input {...getInputProps()} ref={inputRef}/>
                         <div className="grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800">
-                            <FiUploadCloud className="text-2xl text-yellow-50" />
+                            <FiUploadCloud className="text-2xl text-yellow-50"/>
                         </div>
                         <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
                             Drag and drop an {!video ? "image" : "video"}, or click to{" "}
